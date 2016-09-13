@@ -1,4 +1,4 @@
-package headfirst.designpatterns.oodesignprinciples;
+package headfirst.designpatterns.adapter;
 
 /**
  * Created by Sofiane Sadi on 9/13/16.

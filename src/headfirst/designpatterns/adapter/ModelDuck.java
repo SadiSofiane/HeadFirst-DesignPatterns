@@ -1,6 +1,4 @@
-package headfirst.designpatterns.oodesignprinciples;
-
-import com.sun.media.sound.ModelDestination;
+package headfirst.designpatterns.adapter;
 
 /**
  * Created by Sofiane Sadi on 9/13/16.
