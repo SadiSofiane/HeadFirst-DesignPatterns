@@ -1,0 +1,82 @@
+@startuml
+
+title Encapsuled behaviors
+
+package "Client" {
+    class Duck {
+        +FlyBehavior flyBehavior
+        +QuackBehavior quackBehavior
+        +swim()
+        +display()
+        +performQuack()
+        +performFly()
+        +setFlyBehavior()
+        +setQuackBehavior()
+    }
+    class MallardDuck {
+        +display()
+    }
+
+    class RedheadDuck {
+        +display()
+    }
+
+    class RubberDuck {
+        +display()
+    }
+
+    class DecoyDuck {
+        +display()
+    }
+
+    MallardDuck --|> Duck: IS A
+    RedheadDuck --|> Duck: IS A
+    RubberDuck --|> Duck: IS A
+    DecoyDuck --|> Duck: IS A
+}
+
+
+package "Encapsulated fly behavior" {
+    interface FlyBehavior {
+        +fly()
+    }
+
+    class FlyWithWings {
+        +fly()
+    }
+
+    class FlyNoWay {
+        +fly()
+    }
+
+    FlyWithWings ..|> FlyBehavior : IMPLEMENTS
+    FlyNoWay ..|> FlyBehavior : IMPLEMENTS
+}
+
+Duck --> FlyBehavior: HAS A
+
+package "Encapsulated quack behavior" {
+    interface QuackBehavior {
+        +quack()
+    }
+
+    class Quack {
+        +quack()
+    }
+
+    class Squeak {
+        +quack()
+    }
+
+    class MuteQuack {
+        +quack()
+    }
+
+    Quack ..|> QuackBehavior : IMPLEMENTS
+    Squeak ..|> QuackBehavior : IMPLEMENTS
+    MuteQuack ..|> QuackBehavior : IMPLEMENTS
+}
+
+Duck --> QuackBehavior: HAS A
+
+@enduml

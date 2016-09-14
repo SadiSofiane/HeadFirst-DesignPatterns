@@ -1,0 +1,40 @@
+@startuml
+
+    title Program to an interface
+
+    interface QuackBehavior {
+        +quack()
+    }
+
+    interface FlyBehavior {
+        +fly()
+    }
+
+    class FlyWithWings {
+        +fly()
+    }
+
+    class FlyNoWay {
+        +fly()
+    }
+
+    class Quack {
+        +quack()
+    }
+
+    class Squeak {
+        +quack()
+    }
+
+    class MuteQuack {
+        +quack()
+    }
+
+    Quack ..> QuackBehavior
+    Squeak ..> QuackBehavior
+    MuteQuack ..> QuackBehavior
+
+    FlyWithWings ..> FlyBehavior
+    FlyNoWay ..> FlyBehavior
+
+@enduml

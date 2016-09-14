@@ -1,0 +1,48 @@
+@startuml
+    title Interface - Wrong: Code duplicate
+
+    interface Quackable {
+        +quack()
+    }
+
+    interface Flyable {
+        +fly()
+    }
+
+    class Duck {
+        +display()
+    }
+
+    class MallardDuck {
+        +quack()
+        +fly()
+        +display()
+    }
+
+    class RedheadDuck {
+        +quack()
+        +fly()
+        +display()
+    }
+
+    class RubberDuck {
+        +quack()
+        +display()
+    }
+
+    class DecoyDuck {
+        +display()
+    }
+
+    MallardDuck ..|> Quackable
+    MallardDuck ..|> Flyable
+    RedheadDuck ..|> Quackable
+    RedheadDuck ..|> Flyable
+    RubberDuck ..|> Quackable
+
+    MallardDuck --|> Duck
+    RubberDuck --|> Duck
+    DecoyDuck --|> Duck
+    RedheadDuck --|> Duck
+
+@enduml
