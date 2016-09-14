@@ -1,0 +1,37 @@
+@startuml
+
+    title Observer
+
+    interface Subject {
+        +registerObserver()
+        +removeObserver()
+        +notifyObserver()
+    }
+
+    interface Observer {
+        +update()
+    }
+
+    class ConcreteSubject {
+        +registerObserver()
+        +removeObserver()
+        +notifyObserver()
+        +getState()
+        +setState
+    }
+
+    class ConcreteObserver {
+        +update()
+    }
+
+    ConcreteObserver -left-|> ConcreteSubject : Subject
+    ConcreteObserver .up.|> Observer
+    Subject -right-|> Observer : Observers
+    note on link: Each subject can have multiple observer
+    ConcreteSubject .up.|> Subject
+
+    note top of Subject: Here's the Subject interface. \nObjects use this interface to register as observers\nand also to remove themselves from being observers.
+    note left of ConcreteSubject: A concrete subject always implements the Subject interface.\nIn addition to register and remove methods, the concrete subject\n implements a notifyObservers() method that is used to update all\n the current observers whenever state changes.
+    note top of Observer: All potential observers need to implement the Observer inteface.\nThis interface just has one method, update() that gets called\nwhen the Subject's state change.
+    note bottom of ConcreteObserver: Concrete observers can be any class that implements the Observer interface.\nEach observer registers with a concrete subject to receive updates.
+@enduml
